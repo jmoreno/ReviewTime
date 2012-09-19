@@ -6,12 +6,23 @@
 //  Copyright (c) 2012 Zink In Apps!. All rights reserved.
 //
 
-#import "ZIAFlipsideViewController.h"
+#import "ZIASearchViewController.h"
+#import <Twitter/Twitter.h>
+#import <Social/SLComposeViewController.h>
+#import "BButton.h"
 
-@interface ZIAMainViewController : UIViewController <ZIAFlipsideViewControllerDelegate, UIPopoverControllerDelegate>
+
+@interface ZIAMainViewController : UITableViewController <ZIASearchViewControllerDelegate>
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
-@property (strong, nonatomic) UIPopoverController *flipsidePopoverController;
+@property (strong, nonatomic) IBOutlet UITextField *appName;
+@property (strong, nonatomic) IBOutlet UITextField *appStoreLink;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *softwareType;
+@property (strong, nonatomic) IBOutlet UILabel *reviewTime;
+@property (strong, nonatomic) IBOutlet UIStepper *reviewTimeStepper;
+@property (strong, nonatomic) IBOutlet BButton *tweetButton;
+
+- (IBAction)tweetReviewTime:(id)sender;
 
 @end

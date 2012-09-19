@@ -1,4 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1810" systemVersion="12C54" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Apps" syncable="YES">
+        <attribute name="appId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="appName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="appStoreLink" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="kind" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="appReviewTimes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Review" inverseName="reviewTimeApps" inverseEntity="Review" syncable="YES"/>
+    </entity>
+    <entity name="Review" syncable="YES">
+        <attribute name="reviewTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="tweet" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="reviewTimeApps" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Apps" inverseName="appReviewTimes" inverseEntity="Apps" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Apps" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="Review" positionX="160" positionY="192" width="128" height="105"/>
+    </elements>
 </model>
